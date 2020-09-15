@@ -32,7 +32,7 @@ Reference: AddSession.jsx component in workshops-app
         - componentDidMount() - fetch the meetings for selected date, and set state with meetings
             - service method must be defined and called
         - componentDidUpdate() - fetch new set of meetings for selected date and set state with meetings
-            - same service method must called
+            - same service method must called - BE CAREFUL TO PUT THE CALL TO SERVICE WITHIN an if() that checks that it is selectedDate that has changed (else we end up with recursive calls to componentDidUpdate)
     - For API call...
         - if you have implemented authentication - make a call to /api/auth/login in Postman and get a token for a user and harcode 'Authorization': 'the token you got from Postman' when making a call to /api/calendar
         - if you have not implemented authentication - add ?email=<useremail> (or whatever query params represent the user in your calendar API) when making a call to /api/calendar
