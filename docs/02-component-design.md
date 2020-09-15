@@ -33,4 +33,7 @@ Reference: AddSession.jsx component in workshops-app
             - service method must be defined and called
         - componentDidUpdate() - fetch new set of meetings for selected date and set state with meetings
             - same service method must called
+    - For API call...
+        - if you have implemented authentication - make a call to /api/auth/login in Postman and get a token for a user and harcode 'Authorization': 'the token you got from Postman' when making a call to /api/calendar
+        - if you have not implemented authentication - add ?email=<useremail> (or whatever query params represent the user in your calendar API) when making a call to /api/calendar
 - Reference: WorkshopsList, lifecycle methods demo
