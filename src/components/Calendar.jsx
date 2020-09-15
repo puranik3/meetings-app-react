@@ -5,14 +5,10 @@ import { getCalendar } from '../services/calendar';
 class Calendar extends React.Component {
     state = {
         status: Calendar.LOADED_CALENDAR,
-        selectedDate: new Date(),
+        selectedDate: new Date().toISOString().substr( 0, 10 ),
         meetings: null,
         error: null
     };
-
-    getFormattedDate() {
-        return this.state.selectedDate.toISOString().substr( 0, 10 );
-    }
 
     setSelectedDate = ( event ) => {
         this.setState({
@@ -47,7 +43,7 @@ class Calendar extends React.Component {
                 </h1>
                 <hr />
                 <div className="float-right">
-                    <input type="date" id="calendar-date" value={this.getFormattedDate()} onChange={this.setSelectedDate} />
+                    <input type="date" id="calendar-date" value={selectedDate} onChange={this.setSelectedDate} />
                 </div>
                 {el}
             </div>
