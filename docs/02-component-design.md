@@ -22,7 +22,7 @@ Reference: AddSession.jsx component in workshops-app
     - type: class
     - UI
         - input type="date" onChange = setSelectedDate
-        - map through meetings and display as per requirement (display: flex, position: relative / absolute)
+        - map through meetings and display as per requirement (display: flex, position: relative / absolute) - to start off display the meetings in a plain list view
     - Methods
         - setSelectedDate - sets state with selectedDate
     - State
