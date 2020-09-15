@@ -33,3 +33,4 @@ Reference: AddSession.jsx component in workshops-app
             - service method must be defined and called
         - componentDidUpdate() - fetch new set of meetings for selected date and set state with meetings
             - same service method must called
+- Reference: WorkshopsList, lifecycle methods demo
