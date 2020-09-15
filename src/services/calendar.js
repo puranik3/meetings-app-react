@@ -1,11 +1,16 @@
-// import axios from 'axios';
+import axios from 'axios';
 
-function getCalendar() {
-    // - For API call, use axios...
-    // - if you have implemented authentication - make a call to /api/auth/login in Postman and get a token for a user and harcode 'Authorization': 'the token you got from Postman' when making a call to /api/calendar
-    // - if you have not implemented authentication - add ?email=<useremail> (or whatever query params represent the user in your calendar API) when making a call to /api/calendar
-
-    // IMPORTANT: return the promise
+function getCalendar( date ) {
+    const formattedDate = date.toISOString().substr( 0, 10 );
+    return axios.get( 
+        `http://localhost:3000/api/calendar?date=${formattedDate}`,
+        {
+            headers: {
+                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwiaWF0IjoxNjAwMTQ1OTMxLCJleHAiOjE2MDAyMzIzMzF9.klw0llVnzzvLz1Jcrn7IZOXzX3XjYXWApuWjtozdykg'
+            }
+        }
+    )
+                .then( response => response.data );
 }
 
 export {
