@@ -3,25 +3,34 @@ import React from 'react';
 import { getCalendar } from '../services/calendar';
 
 class Calendar extends React.Component {
-    // State
-    //     - selectedDate: selected date - current date
-    //     - meetings: array of the selected day's meetings
     state = {
-        status: 'LOADING',
+        status: Calendar.LOADED_CALENDAR,
         selectedDate: new Date(),
-        meetings: null
-        /* may want to add error too (to hold error object in case calendar could not be fetched) */
+        meetings: null,
+        error: null
     };
 
+    getFormattedDate() {
+        return this.state.selectedDate.toISOString().substr( 0, 10 );
+    }
+
     setSelectedDate = () => {
-        // sets state with selectedDate
+        // sets statey with selectedDate
     }
 
     render() {
         // - input type="date" onChange = setSelectedDate
         // - map through meetings and display as per requirement (display: flex, position: relative / absolute) - to start off display the meetings in a plain list view
         return (
-
+            <div className="container">
+                <h1>
+                    Calendar
+                </h1>
+                <hr />
+                <div className="float-right">
+                    <input type="date" id="calendar-date" value={this.getFormattedDate()} />
+                </div>
+            </div>
         );
     }
     
@@ -37,6 +46,10 @@ class Calendar extends React.Component {
     }
 }
 
-Calendar.Status = { LOADING_CALENDAR: 'LOADING_CALENDAR', LOADED_CALENDAR: 'LOADED_CALENDAR', ERROR_LOADING_CALENDAR: 'ERROR_LOADING_CALENDAR' };
+Calendar.Status = {
+    LOADING_CALENDAR: 'LOADING_CALENDAR',
+    LOADED_CALENDAR: 'LOADED_CALENDAR',
+    ERROR_LOADING_CALENDAR: 'ERROR_LOADING_CALENDAR'
+};
 
 export default Calendar;
