@@ -7,6 +7,7 @@ class Calendar extends React.Component {
     //     - selectedDate: selected date - current date
     //     - meetings: array of the selected day's meetings
     state = {
+        status: 'LOADING',
         selectedDate: new Date(),
         meetings: null
         /* may want to add error too (to hold error object in case calendar could not be fetched) */
@@ -35,5 +36,7 @@ class Calendar extends React.Component {
         // - same service method must called - BE CAREFUL TO PUT THE CALL TO SERVICE WITHIN an if() that checks that it is selectedDate that has changed (else we end up with recursive calls to componentDidUpdate)
     }
 }
+
+Calendar.Status = { LOADING_CALENDAR: 'LOADING_CALENDAR', LOADED_CALENDAR: 'LOADED_CALENDAR', ERROR_LOADING_CALENDAR: 'ERROR_LOADING_CALENDAR' };
 
 export default Calendar;
